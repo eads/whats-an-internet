@@ -5,7 +5,7 @@ Tarbell project configuration
 """
 
 # Google spreadsheet key
-#SPREADSHEET_KEY = "None"
+SPREADSHEET_KEY = "10HmPJvXi_X2RHb8s_oQ2WGGsBlz-tHuW2n1dsomaD7c"
 
 # Exclude these files from publication
 EXCLUDES = ["*.md", "requirements.txt"]
@@ -49,5 +49,5 @@ DEFAULT_CONTEXT = {
                                   'column2': u'key2, column2',
                                   'key': u'key2'}},
     'name': 'dc-dbootcamp-2015',
-    'title': 'asdlkj'
+    'title': 'DC Data Bootcamp 2015'
 }

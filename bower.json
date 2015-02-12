@@ -1,0 +1,24 @@
+{
+  "name": "dc-dbootcamp-2015",
+  "version": "0.0.0",
+  "homepage": "https://github.com/eads/dc-dbootcamp-2015",
+  "authors": [
+    "David Eads <davideads@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "_blueprint",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+    "jquery": "~2.1.3",
+    "revealjs": "components/revealjs#~2.6.2"
+  }
+}
