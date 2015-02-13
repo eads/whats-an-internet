@@ -1,14 +1,16 @@
 {% extends "_base.html" %}
 
 {% block content %}
-<div class="reveal">
-  <div class="slides">
+<div id="fullpage">
+  <div class="section">
     {% for slide in slides %}
-    <section id="{% if not slide.id %}_{{ loop.index }}{% else %}{{ slide.id }}{% endif %}"{% if slide.image %} data-background-image="{{ slide.image }}"{% endif %}{% if slide.background_size %} data-background-size="{{ slide.background_size }}"{% endif %}{% if slide.extra_class %} class="{{ slide.extra_class }}"{% endif %}>
-      {% if slide.text %}
-      <h1>{{ slide.text }}</h1>
-      {% endif %}
-    </section>
+    <div class="slide{% if slide.extra_class %} {{ slide.extra_class }}{% endif %}" data-anchor="{{ loop.index }}"{% if slide.image %} data-background-image="{{ slide.image }}"{% endif %}{% if slide.background_size %} data-background-size="{{ slide.background_size }}"{% endif %}>
+      <div class="slide-inner">
+        {% if slide.text %}
+        <h1 {% if slide.top != None or slide.left != None or slide.right != None or slide.bottom != None %} style="position: absolute;{% if slide.top != None %} top: {{ slide.top }}%;{% endif %} {% if slide.left != None %} left: {{ slide.left }}%;{% endif %}{% if slide.right != None %}right: {{ slide.right }}%;{% endif %}{% if slide.bottom != None %} bottom: {{ slide.bottom }}%;{% endif %}{% if slide.width != None %} width: {{ slide.width }}%;{% endif %}"{% endif %}>{{ slide.text }}</h1>
+        {% endif %}
+      </div>
+    </div>
     {% endfor %}
   </div>
 </div>
