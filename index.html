@@ -4,10 +4,17 @@
 <div id="fullpage">
   <div class="section">
     {% for slide in slides %}
-    <div class="slide{% if slide.extra_class %} {{ slide.extra_class }}{% endif %}" data-anchor="{{ loop.index }}"{% if slide.image %} data-background-image="{{ slide.image }}"{% endif %}{% if slide.background_size %} data-background-size="{{ slide.background_size }}"{% endif %}>
-      <div class="slide-inner">
+    {% set positioned = slide.top or slide.left or slide.right or slide.bottom %}
+    <div class="slide{% if positioned %} positioned{% endif %}{% if slide.image %} background{% endif %}{% if slide.extra_class %} {{ slide.extra_class }}{% endif %}" data-anchor="{{ loop.index }}"{% if slide.image %} data-background-image="{{ slide.image }}"{% endif %}{% if slide.background_size %} data-background-size="{{ slide.background_size }}"{% endif %}>
+      <div class="slide-inner" style="{% if slide.top %} top: {{ slide.top }}%;{% endif %}{% if slide.left %} left: {{ slide.left }}%;{% endif %}{% if slide.right %} right: {{ slide.right }}%;{% endif %}{% if slide.bottom %} bottom: {{ slide.bottom }}%;{% endif %}{% if slide.width %} width: {{ slide.width }}%;{% endif %}">
+        {% if slide.hed %}
+        <h1>{{ slide.hed|safe }}</h1>
+        {% endif %}
+        {% if slide.subhed %}
+        <h2>{{ slide.subhed|safe }}</h2>
+        {% endif %}
         {% if slide.text %}
-        <h1 {% if slide.top != None or slide.left != None or slide.right != None or slide.bottom != None %} style="position: absolute;{% if slide.top != None %} top: {{ slide.top }}%;{% endif %} {% if slide.left != None %} left: {{ slide.left }}%;{% endif %}{% if slide.right != None %}right: {{ slide.right }}%;{% endif %}{% if slide.bottom != None %} bottom: {{ slide.bottom }}%;{% endif %}{% if slide.width != None %} width: {{ slide.width }}%;{% endif %}"{% endif %}>{{ slide.text }}</h1>
+        {{ slide.text|safe }}
         {% endif %}
       </div>
     </div>

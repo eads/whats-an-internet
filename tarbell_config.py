@@ -5,7 +5,7 @@ Tarbell project configuration
 """
 
 # Google spreadsheet key
-SPREADSHEET_KEY = "10HmPJvXi_X2RHb8s_oQ2WGGsBlz-tHuW2n1dsomaD7c"
+#SPREADSHEET_KEY = "10HmPJvXi_X2RHb8s_oQ2WGGsBlz-tHuW2n1dsomaD7c"
 
 # Exclude these files from publication
 EXCLUDES = ["*.md", "requirements.txt"]
@@ -19,7 +19,7 @@ EXCLUDES = ["*.md", "requirements.txt"]
 # Get context from a local file or URL. This file can be a CSV or Excel
 # spreadsheet file. Relative, absolute, and remote (http/https) paths can be 
 # used.
-# CONTEXT_SOURCE_FILE = ""
+CONTEXT_SOURCE_FILE = "data/_slides.xlsx"
 
 # EXPERIMENTAL: Path to a credentials file to authenticate with Google Drive.
 # This is useful for for automated deployment. This option may be replaced by
@@ -28,12 +28,13 @@ EXCLUDES = ["*.md", "requirements.txt"]
 # CREDENTIALS_PATH = ""
 
 # S3 bucket configuration
-#S3_BUCKETS = {
-    # Provide target -> s3 url pairs, such as:
-    #     "mytarget": "mys3url.bucket.url/some/path"
-    # then use tarbell publish mytarget to publish to it
-    
-#}
+S3_BUCKETS = {
+     #Provide target -> s3 url pairs, such as:
+         #"mytarget": "mys3url.bucket.url/some/path"
+     #then use tarbell publish mytarget to publish to it
+    'production': 'recoveredfactory.net/dbootcamp-2015',
+    'staging': 'recoveredfactory.net/dbootcamp-2015',
+}
 
 # Default template variables
 DEFAULT_CONTEXT = {
