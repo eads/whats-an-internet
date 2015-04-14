@@ -1,25 +1,19 @@
 {% extends "_base.html" %}
 
 {% block content %}
-<div id="fullpage">
-  <div class="section">
+
+<div class="deck-container hidden">
     {% for slide in slides %}
-    {% set positioned = slide.top or slide.left or slide.right or slide.bottom %}
-    <div class="slide{% if positioned %} positioned{% endif %}{% if slide.image %} background{% endif %}{% if slide.extra_class %} {{ slide.extra_class }}{% endif %}" data-anchor="{{ loop.index }}"{% if slide.image %} data-background-image="{{ slide.image }}"{% endif %}{% if slide.background_size %} data-background-size="{{ slide.background_size }}"{% endif %}>
-      <div class="slide-inner" style="{% if slide.top %} top: {{ slide.top }}%;{% endif %}{% if slide.left %} left: {{ slide.left }}%;{% endif %}{% if slide.right %} right: {{ slide.right }}%;{% endif %}{% if slide.bottom %} bottom: {{ slide.bottom }}%;{% endif %}{% if slide.width %} width: {{ slide.width }}%;{% endif %}">
-        {% if slide.hed %}
-        <h1>{{ slide.hed|safe }}</h1>
-        {% endif %}
-        {% if slide.subhed %}
-        <h2>{{ slide.subhed|safe }}</h2>
-        {% endif %}
-        {% if slide.text %}
-        {{ slide.text|safe }}
-        {% endif %}
-      </div>
-    </div>
+    <section class="slide" {% if slide.background_image %}data-background-image="{{ slide.background_image }}"{% endif %}>
+        <h1>{{ slide.text }}</h1>
+    </section>
     {% endfor %}
-  </div>
 </div>
+
+<div aria-role="navigation">
+    <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+    <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+</div>
+
 {% endblock %}
 
