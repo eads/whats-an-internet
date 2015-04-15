@@ -1,19 +1,20 @@
 {% extends "_base.html" %}
 
 {% block content %}
-
 <div class="deck-container hidden">
     {% for slide in slides %}
-    <section class="slide" {% if slide.background_image %}data-background-image="{{ slide.background_image }}"{% endif %}>
-        <h1>{{ slide.text }}</h1>
+    <section class="slide{% if slide.class %} {{ slide.class }}{% endif %}" {% if slide.background_image %}data-background-image="{{ slide.background_image }}"{% endif %}>
+        <div class="slide-inner">
+            {% if slide.content %}
+            {% if slide.file %}
+            {{ render_file('slides/{0}.md'.format(slide.content))|markdown }}
+            {% else %}
+            {{ slide.content|markdown }}
+            {% endif %}
+            {% endif %}
+        </div>
     </section>
     {% endfor %}
 </div>
-
-<div aria-role="navigation">
-    <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
-    <a href="#" class="deck-next-link" title="Next">&#8594;</a>
-</div>
-
 {% endblock %}
 
