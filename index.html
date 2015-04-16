@@ -13,6 +13,12 @@
             {% endif %}
             {% endif %}
         </div>
+
+        {% if slide.image_attribution %}
+        <div class="attribution">
+          Photo from {% if slide.image_source %}<a href="{{ slide.image_source }}">{{ slide.image_attribution }}</a>{% else %}{{ slide.image_attribution }}{% endif %}
+        </div>
+        {% endif %}
     </section>
     {% endfor %}
 </div>
