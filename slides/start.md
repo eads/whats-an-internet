@@ -6,5 +6,5 @@ With apologies to Jeremy Bowers
 
 Link: [recoveredfactory.net/whats-an-internet](http://recoveredfactory.net/whats-an-internet)
 
-Source: [github.com/whats-an-internet](https://github.com/whats-an-internet)
+Source: [github.com/eads/whats-an-internet](https://github.com/eads/whats-an-internet)
 
